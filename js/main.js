@@ -5,13 +5,13 @@ $(document).ready(function () {
         nextArrow: '<button type="button" class="slick-next"><img src="images/arrow-right.svg"></img></button>',
         responsive: [
             {
-              breakpoint: 768,
-              settings: {
-                arrows: false,
-                fade: true
-              }
-            }
-          ]
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    fade: true,
+                },
+            },
+        ],
     });
 });
 
@@ -30,10 +30,27 @@ document.addEventListener("click", function (e) {
         body.classList.remove("no-scroll");
     }
     if (menu.classList.contains("active")) {
-        menu.style.maxHeight = menu.scrollHeight + 'px'; 
+        menu.style.maxHeight = menu.scrollHeight + "px";
     } else {
         menu.style.maxHeight = null;
     }
 });
+
+const anchors = document.querySelectorAll(".scroll-to");
+
+for (let anchor of anchors) {
+    anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        let href = this.getAttribute("href").substring(1);
+        const scrollTarget = document.getElementById(href);
+        const topOffset = document.querySelector(".nav").offsetHeight;
+        const elementPosition = scrollTarget.getBoundingClientRect().top;
+        const offsetPosition = elementPosition - topOffset;
+        window.scrollBy({
+            top: offsetPosition,
+            behavior: "smooth",
+        });
+    });
+}
 
 var mixer = mixitup(".portfolio-gallery", {});
