@@ -616,10 +616,10 @@ body.no-scroll {
 }
 .form__name,
 .form__email {
-    padding: 18px 0;
+    padding: 18px 10px;
 }
 .form__text {
-    padding-top: 53px;
+    padding: 53px 10px 10px;
     min-height: 209px;
     resize: none;
     margin-bottom: 47px;
