@@ -536,6 +536,11 @@ body.no-scroll {
     padding: 24px 24px 53px 24px;
     color: #242121;
     text-align: center;
+    transition: .3s;
+}
+.pricing-box__item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 5px 10px -5px #1d1d1d;
 }
 .pricing-box__item-rate {
     font-weight: 700;
